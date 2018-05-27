@@ -18,39 +18,32 @@
     "test": "ava",
     "code-quality": "npm run lint && npm run test"
   },
-  "files": [
-    "src/"
-  ],
+  "files": ["src/"],
   "main": "src/index.js",
-  "keywords": [
-    "cli",
-    ""
-  ],
+  "keywords": ["cli", ""],
   "dependencies": {
-    "yargs": "^8.0.1"
+    "archiver": "^2.1.1",
+    "debug": "^3.1.0",
+    "fast-glob": "^2.2.2",
+    "fs-extra": "^6.0.1",
+    "uuid": "^3.2.1",
+    "yargs": "^11.0.0"
   },
   "devDependencies": {
-    "ava": "^0.19.1",
+    "ava": "^0.25.0",
     "eslint": "^4.19.1",
+    "eslint-config-prettier": "^2.9.0",
     "eslint-plugin-ava": "^4.5.1",
     "eslint-plugin-node": "^6.0.1",
     "eslint-plugin-prettier": "^2.6.0",
-    "eslint-config-prettier": "^2.9.0",
-    "prettier": "^1.11.1",
     "husky": "^0.14.3",
-    "lint-staged": "^7.0.4"
+    "lint-staged": "^7.1.2",
+    "prettier": "^1.12.1"
   },
   "lint-staged": {
     "linters": {
-      "**/*.{json,md}": [
-        "prettier --write",
-        "git add"
-      ],
-      "**/*.js": [
-        "prettier --write",
-        "eslint",
-        "git add"
-      ]
+      "**/*.{json,md}": ["prettier --write", "git add"],
+      "**/*.js": ["prettier --write", "eslint", "git add"]
     }
   },
   "private": true
