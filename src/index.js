@@ -3,7 +3,7 @@
 const path = require('path');
 const fs = require('fs-extra');
 const uuid = require('uuid/v4');
-const debug = require('debug')('pack-it');
+const ora = require('ora');
 const ieg = require('./ieg');
 const compress = require('./compress');
 
@@ -14,18 +14,24 @@ function pack(name, type, sourceDir, outputDir) {
   const dumpDir = path.join(dumpsDir, `${name}-${TASK_ID}`);
   const packDir = path.join(packsDir, `${name}-${TASK_ID}`);
 
-  debug(`creating ${dumpsDir}`);
+  let spinner = ora('Creating working dirs').start();
   fs.ensureDirSync(dumpsDir);
   fs.ensureDirSync(packsDir);
+  spinner.succeed();
 
-  debug(`${sourceDir} -> ${dumpDir}`);
+  spinner = ora('Dumping source dir').start();
   fs.copySync(sourceDir, dumpDir);
+  spinner.succeed();
 
   if (type === 'ieg') {
+    spinner = ora(`Pack it as type - ${type}`).start();
     ieg(dumpDir, packDir);
+    spinner.succeed();
   }
 
+  spinner = ora('Compressing').start();
   compress(packDir, outputDir, name, { dirname: name, addTimestamp: true });
+  spinner.succeed();
 }
 
 module.exports = pack;
