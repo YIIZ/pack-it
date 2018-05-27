@@ -1,66 +1,40 @@
 # pack-it
 
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
-[![Dependency Status](https://img.shields.io/david/m31271n/pack-it.svg)](#)
-[![DevDependency Status](https://img.shields.io/david/m31271n/pack-it.svg)](#)
-[![Travis Build Status](https://img.shields.io/travis/m31271n/pack-it.svg)](#)
-[![NPM Downloads](https://img.shields.io/npm/dm/pack-it.svg)](#)
-
 
 > Just pack it.
 
 ## Install
 
+via NPM (unavailable):
+
 ```
 $ npm install pack-it
 ```
 
+via Git URL:
+
+```
+$ npm install https://bitbucket.org/teambun/pack-it.git
+```
+
 ## Usage
 
-```js
-const packIt = require('pack-it');
-
-packIt('unicorns');
-//=> 'unicorns & rainbows'
+```sh
+# pack-it -n [name] -t [type] -s [source dir] -o [output dir]
 ```
 
-## API
+* [compulsory] name - project name. eg. `a20180508cqsjar`
+* [compulsory] type - project type. eg. `ieg`
+* [compulsory] source dir - source directory to be packed
+* [optional] output dir - output directory which stores archives. Current directory by default.
 
-### packIt(input, [options])
+## Example
 
-#### input
-
-Type: `string`
-
-Lorem ipsum.
-
-#### options
-
-##### foo
-
-Type: `boolean`<br>
-Default: `false`
-
-Lorem ipsum.
-
-## CLI
-
-```
-$ npm install --global pack-it
+```sh
+# pack-it -n a20180508cqsjar -t ieg -s ./build/
 ```
 
-```
-$ pack-it --help
+# LICENSE
 
-  Usage
-    pack-it [input]
-
-  Options
-    --foo  Lorem ipsum [Default: false]
-
-  Examples
-    $ pack-it
-    unicorns & rainbows
-    $ pack-it ponies
-    ponies & rainbows
-```
+No License
