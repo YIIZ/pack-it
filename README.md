@@ -14,7 +14,11 @@
 通过 Git URL:
 
 ```
+# latest version
 $ npm install https://bitbucket.org/teambun/pack-it.git
+
+# specific version, for example:
+$ npm install https://bitbucket.org/teambun/pack-it.git#0.2.0
 ```
 
 通过 NPM (暂未提供):
