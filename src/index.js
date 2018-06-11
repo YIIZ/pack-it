@@ -2,24 +2,21 @@
 
 const path = require('path');
 const fs = require('fs-extra');
-const uuid = require('uuid/v4');
 const ora = require('ora');
 const ieg = require('./ieg');
 const compress = require('./compress');
 
 function pack(name, type, sourceDir, outputDir) {
-  const TASK_ID = uuid();
-  const dumpsDir = '/tmp/pack-it/dumps';
-  const packsDir = '/tmp/pack-it/packs';
-  const dumpDir = path.join(dumpsDir, `${name}-${TASK_ID}`);
-  const packDir = path.join(packsDir, `${name}-${TASK_ID}`);
+  const TASK_ID = new Date().getTime();
+  const baseDir = `/tmp/pack-it/${name}-${TASK_ID}`;
+  const dumpDir = path.join(baseDir, 'dump');
+  const packDir = path.join(baseDir, 'pack');
 
-  let spinner = ora('Creating working dirs').start();
-  fs.ensureDirSync(dumpsDir);
-  fs.ensureDirSync(packsDir);
+  let spinner = ora('Creating working directories').start();
+  fs.ensureDirSync(baseDir);
   spinner.succeed();
 
-  spinner = ora('Dumping source dir').start();
+  spinner = ora('Dumping source directory').start();
   fs.copySync(sourceDir, dumpDir);
   spinner.succeed();
 
