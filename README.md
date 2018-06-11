@@ -4,37 +4,45 @@
 
 > Just pack it.
 
-## Install
+## 功能
 
-via NPM (unavailable):
+* 移除 dotfiles
+* 针对特定上传标准进行打包
+  * IEG（腾讯互娱）
+
+## 安装
+
+通过 NPM (暂未提供):
 
 ```
 $ npm install pack-it
 ```
 
-via Git URL:
+通过 Git URL:
 
 ```
 $ npm install https://bitbucket.org/teambun/pack-it.git
 ```
 
-## Usage
+## 使用说明
 
 ```sh
-# pack-it -n [name] -t [type] -s [source dir] -o [output dir]
+$ pack-it -t [type] -n [name] -s [source dir] -o [output dir]
 ```
 
-* [compulsory] name - project name. eg. `a20180508cqsjar`
-* [compulsory] type - project type. eg. `ieg`
-* [compulsory] source dir - source directory to be packed
-* [optional] output dir - output directory which stores archives. Current directory by default.
+| 参数名称   | 必需 | 说明                     | 举例              |
+| ---------- | ---- | ------------------------ | ----------------- |
+| type       | 是   | 打包类型                 | `ieg`             |
+| name       | 是   | 专题 ID                  | `a20180508cqsjar` |
+| source dir | 是   | 需要打包的目录           | `build`           |
+| output dir | 否   | 输出目录，默认为当前目录 | `/tmp`            |
 
-## Example
+## 举例
 
 ```sh
-# pack-it -n a20180508cqsjar -t ieg -s ./build/
+$ pack-it -t ieg -n a20180508cqsjar -s ./build/
 ```
 
-# LICENSE
+# 许可证
 
-No License
+无
