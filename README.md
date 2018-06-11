@@ -8,20 +8,19 @@
 
 * 移除 dotfiles
 * 针对特定上传标准进行打包
-  * IEG（腾讯互娱）
 
 ## 安装
-
-通过 NPM (暂未提供):
-
-```
-$ npm install pack-it
-```
 
 通过 Git URL:
 
 ```
 $ npm install https://bitbucket.org/teambun/pack-it.git
+```
+
+通过 NPM (暂未提供):
+
+```
+$ npm install pack-it
 ```
 
 ## 使用说明
