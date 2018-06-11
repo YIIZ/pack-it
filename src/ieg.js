@@ -8,7 +8,7 @@ function ieg(dumpDir, packDir) {
   const patterns = {
     dotFiles: '**/.*',
     entryFiles: 'index.html',
-    cdnFiles: ['*/', '!index.html'],
+    cdnFiles: ['*', '!index.html'],
   };
 
   const options = {
@@ -24,11 +24,12 @@ function ieg(dumpDir, packDir) {
     fs.removeSync(dotfile);
   });
 
-  const cdnDir = path.join(packDir, 'ossweb-img');
+  const cdnDir = path.join(packDir, 'ossweb-img/');
   fs.ensureDirSync(cdnDir);
-  cdnFiles.forEach(cdnFile => {
-    const cdnFileAbsolutePath = path.join(dumpDir, cdnFile);
-    fs.moveSync(cdnFileAbsolutePath, cdnDir);
+  cdnFiles.forEach(file => {
+    const sourceAbsolutePath = path.join(dumpDir, file);
+    const destAbsolutePath = path.join(cdnDir, file);
+    fs.moveSync(sourceAbsolutePath, destAbsolutePath);
   });
 
   entryFiles.forEach(entryFile => {
