@@ -3,10 +3,10 @@
 const path = require('path');
 const fs = require('fs-extra');
 const archiver = require('archiver');
+const localtime = require('localtime');
 
 function timestamp() {
-  const timeString = new Date().toLocaleString();
-  const ts = timeString.replace(/:/g, '-').replace(/ /g, '_');
+  const ts = localtime(null, 'YYYYMMDDThhmmss');
   return ts;
 }
 
