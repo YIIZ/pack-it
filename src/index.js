@@ -3,6 +3,7 @@
 const path = require('path');
 const fs = require('fs-extra');
 const ora = require('ora');
+const cleanupDotfiles = require('./cleanup-dotfiles');
 const ieg = require('./ieg');
 const compress = require('./compress');
 
@@ -20,13 +21,17 @@ function pack(name, type, sourceDir, outputDir) {
   fs.copySync(sourceDir, dumpDir);
   spinner.succeed();
 
+  spinner = ora('Cleaning up dotfiles').start();
+  cleanupDotfiles(dumpDir);
+  spinner.succeed();
+
   if (type === 'ieg') {
     spinner = ora(`Pack it as type - ${type}`).start();
     ieg(dumpDir, packDir);
     spinner.succeed();
   }
 
-  spinner = ora('Compressing').start();
+  spinner = ora('Compressing as zip').start();
   compress(packDir, outputDir, name, { dirname: name, addTimestamp: true });
   spinner.succeed();
 }
