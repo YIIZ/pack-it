@@ -1,13 +1,7 @@
 {
-  "name": "pack-it",
+  "name": "@teambun/pack-it",
   "version": "0.2.0",
   "description": "Just pack it.",
-  "repository": "m31271n/pack-it",
-  "author": {
-    "name": "m31271n",
-    "email": "m31271n@gmail.com",
-    "url": "stack.m31271n.com"
-  },
   "bin": "src/cli.js",
   "engines": {
     "node": ">=8"
@@ -42,5 +36,5 @@
       "**/*.js": ["prettier --write", "eslint", "git add"]
     }
   },
-  "private": true
+  "license": "MIT"
 }
