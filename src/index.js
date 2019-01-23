@@ -7,7 +7,7 @@ const cleanupDotfiles = require('./cleanup-dotfiles');
 const ieg = require('./ieg');
 const compress = require('./compress');
 
-async function pack(name, type, sourceDir, outputDir) {
+async function pack(name, type, sourceDir, outputDir, ignores) {
   const TASK_ID = new Date().getTime();
   const baseDir = `/tmp/pack-it/${name}-${TASK_ID}`;
   const dumpDir = path.join(baseDir, 'dump');
@@ -27,7 +27,7 @@ async function pack(name, type, sourceDir, outputDir) {
 
   if (type === 'ieg') {
     spinner = ora(`Pack it as type - ${type}`).start();
-    ieg(dumpDir, packDir);
+    ieg(dumpDir, packDir, ignores);
     spinner.succeed();
   }
 

@@ -30,11 +30,17 @@ const argv = yargs
     describe: 'output directory which stores archives',
     type: 'string',
   })
+  .option('i', {
+    demandOption: false,
+    describe: 'ignore file or directory to cdn',
+    type: 'array',
+  })
   .help('h').argv;
 
 const name = argv.n;
 const type = argv.t;
 const sourceDir = argv.s;
 const outputDir = argv.o;
+const ignores = argv.i;
 
-packIt(name, type, sourceDir, outputDir);
+packIt(name, type, sourceDir, outputDir, ignores);

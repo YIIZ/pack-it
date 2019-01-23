@@ -4,10 +4,10 @@ const path = require('path');
 const fs = require('fs-extra');
 const fg = require('fast-glob');
 
-function ieg(dumpDir, packDir) {
+function ieg(dumpDir, packDir, ignores = []) {
   const patterns = {
-    entryFiles: 'index.html',
-    cdnFiles: ['*', '!index.html'],
+    entryFiles: ['index.html'].concat(ignores),
+    cdnFiles: ['*', '!index.html'].concat(ignores.map(f => '!' + f)),
   };
 
   const options = {
