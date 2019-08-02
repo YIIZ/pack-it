@@ -1,6 +1,6 @@
 {
   "name": "@teambun/pack-it",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Just pack it.",
   "bin": "src/cli.js",
   "engines": {
