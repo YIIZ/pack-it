@@ -7,7 +7,10 @@ const cleanupDotfiles = require('./cleanup-dotfiles');
 const ieg = require('./ieg');
 const compress = require('./compress');
 
-async function pack(name, type, sourceDir, outputDir, ignores) {
+async function pack(
+  sourceDir,
+  { outputDir, addTimestamp, name, type, ignores }
+) {
   const TASK_ID = new Date().getTime();
   const baseDir = `/tmp/pack-it/${name}-${TASK_ID}`;
   const dumpDir = path.join(baseDir, 'dump');
@@ -34,7 +37,7 @@ async function pack(name, type, sourceDir, outputDir, ignores) {
   spinner = ora('Compressing as zip').start();
   const zip = await compress(packDir, outputDir, name, {
     dirname: name,
-    addTimestamp: true,
+    addTimestamp,
   });
   spinner.succeed();
 
