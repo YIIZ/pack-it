@@ -10,30 +10,42 @@
     "precommit": "lint-staged",
     "lint": "eslint 'src/**/*.js'"
   },
-  "files": ["src/"],
+  "files": [
+    "src/"
+  ],
   "main": "src/index.js",
-  "keywords": ["cli", "pack"],
+  "keywords": [
+    "cli",
+    "pack"
+  ],
   "dependencies": {
-    "archiver": "^2.1.1",
-    "fast-glob": "^2.2.2",
-    "fs-extra": "^6.0.1",
+    "archiver": "^3.1.1",
+    "fast-glob": "^3.2.2",
+    "fs-extra": "^9.0.0",
     "localtime": "^1.0.2",
-    "ora": "^2.1.0",
-    "yargs": "^11.0.0"
+    "ora": "^4.0.3",
+    "yargs": "^15.3.1"
   },
   "devDependencies": {
-    "eslint": "^4.19.1",
-    "eslint-config-prettier": "^2.9.0",
-    "eslint-plugin-node": "^6.0.1",
-    "eslint-plugin-prettier": "^2.6.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.1.2",
     "husky": "^0.14.3",
     "lint-staged": "^7.1.2",
-    "prettier": "^1.12.1"
+    "prettier": "^2.0.4"
   },
   "lint-staged": {
     "linters": {
-      "**/*.{json,md}": ["prettier --write", "git add"],
-      "**/*.js": ["prettier --write", "eslint", "git add"]
+      "**/*.{json,md}": [
+        "prettier --write",
+        "git add"
+      ],
+      "**/*.js": [
+        "prettier --write",
+        "eslint",
+        "git add"
+      ]
     }
   },
   "license": "MIT"
