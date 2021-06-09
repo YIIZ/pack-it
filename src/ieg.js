@@ -6,8 +6,8 @@ const fg = require('fast-glob');
 
 function ieg(dumpDir, packDir, ignores = []) {
   const patterns = {
-    entryFiles: ['index.html', 'index.htm'].concat(ignores),
-    cdnFiles: ['*', '!index.html', '!index.htm'].concat(
+    entryFiles: ['*.html'].concat(ignores),
+    cdnFiles: ['*', '!*.html'].concat(
       ignores.map(f => '!' + f)
     ),
   };
